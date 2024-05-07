@@ -24,7 +24,7 @@ print(TASK2_STRING + 'ing')
 TASK3_STRING = 'Ivanou Ivan'
 name_surname_list = TASK3_STRING.split()
 name_surname_list = name_surname_list[::-1]
-RESULT = " ".join(list)
+RESULT = " ".join(name_surname_list)
 print(RESULT)
 
 
