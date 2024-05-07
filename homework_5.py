@@ -21,11 +21,11 @@ print(TASK2_STRING + 'ing')
 
 
 # Task 3
-TASK3_STRING = 'Ivanou Ivan'
-TASK3_STRING = TASK3_STRING.split()
-TASK3_STRING = TASK3_STRING[::-1]
-TASK3_STRING = " ".join(TASK3_STRING)
-print(TASK3_STRING)
+task3_string = 'Ivanou Ivan'
+list = task3_string.split()
+list = list[::-1]
+result = " ".join(list)
+print(result)
 
 
 # Task 4
