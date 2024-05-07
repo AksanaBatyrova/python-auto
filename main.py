@@ -1,5 +1,7 @@
+"""Module executing function of printing "Hello World" if condition is met"""
+
 def main():
-    """Function printing 'Hello World!' if condition is met"""
+    """Function printing 'Hello World!'"""
     print("Hello world!")
 
 
