@@ -1,4 +1,5 @@
 def main():
+    """Function printing 'Hello World!' if condition is met"""
     print("Hello world!")
 
 
