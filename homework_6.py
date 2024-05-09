@@ -33,8 +33,10 @@ task4_string = ["I", "love", "arrays", "they", "are", "my", "favorite"]
 print(' '.join(task4_string))
 
 # Task 5
-arr = ['Apple', 'Orange', 'Pear', 'Cherry', 'Banana', 'Mango', 'Grapes', 'Lime',
-      'Strawberry', 'Blackcurrant']
+arr = [
+    'Apple', 'Orange', 'Pear', 'Cherry', 'Banana',
+    'Mango', 'Grapes', 'Lime', 'Strawberry', 'Blackcurrant'
+    ]
 arr[2] = 'Plum'
 del arr[6]
 print(arr)
