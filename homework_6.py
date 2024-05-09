@@ -3,8 +3,10 @@
 2. "I love arrays they are my favorite" => ["I", "love", "arrays", "they", "are", "my", "favorite"]
 3. Дан список: [Ivan, Ivanou], и 2 строки: Minsk, Belarus
    Напечатайте текст: “Привет, Ivan Ivanou! Добро пожаловать в Minsk Belarus”
-4. Дан список ["I", "love", "arrays", "they", "are", "my", "favorite"] сделайте из него строку => "I love arrays they are my favorite"
-5. Создайте список из 10 элементов, вставьте на 3-ю позицию новое значение, удалите элемент из списка под индексом 6
+4. Дан список ["I", "love", "arrays", "they", "are", "my", "favorite"] 
+   сделайте из него строку => "I love arrays they are my favorite"
+5. Создайте список из 10 элементов, вставьте на 3-ю позицию новое значение, 
+   удалите элемент из списка под индексом 6
 """
 
 # Task 1
@@ -19,8 +21,8 @@ print(list(TASK2_STRING.split(" ")))
 
 # Task 3
 Name_Surname = ['Ivan', 'Ivanou']
-City = 'Minsk'
-Country = 'Belarus'
+CITY = 'Minsk'
+COUNTRY = 'Belarus'
 print(f"Привет, {' '.join(Name_Surname)}! Добро пожаловать в {City} {Country}!")
 
 
@@ -29,7 +31,8 @@ task4_string = ["I", "love", "arrays", "they", "are", "my", "favorite"]
 print(' '.join(task4_string))
 
 # Task 5
-arr = ['Apple', 'Orange', 'Pear', 'Cherry', 'Banana', 'Mango', 'Grapes', 'Lime', 'Strawberry', 'Blackcurrant']
+arr = ['Apple', 'Orange', 'Pear', 'Cherry', 'Banana', 'Mango', 'Grapes', 'Lime', 
+      'Strawberry', 'Blackcurrant']
 arr[2] = 'Plum'
 del arr[6]
 print(arr)
