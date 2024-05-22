@@ -14,11 +14,12 @@ B классическом варианте игра рассчитана на �
 в "Быки и коровы"
 """
 
-answer = 2310
+ANSWER = 2310
 guess = input('Make a guess: ')
 
 
 def bulls_and_cows_game(answer, guess):
+    # function describing cows and bulls game
     cows = 0
     bulls = 0
     answer_li = list(str(answer))
@@ -33,10 +34,10 @@ def bulls_and_cows_game(answer, guess):
         guess = input('Make another guess: ')
         bulls_and_cows_game(answer, guess)
     elif bulls == 4:
-        return print('You win!')
+        return 'You win!'
 
 
-bulls_and_cows_game(answer, guess)
+bulls_and_cows_game(ANSWER, guess)
 
 """
 Пирамида
@@ -63,6 +64,7 @@ co значением N, равным 10
 
 
 def pyramid(n):
+    # print pyramid of * sumbols
     for i in range(n):
         i = i * 2 - 1
         print(('*' * i).center(n * 2 - 1))
@@ -88,6 +90,7 @@ statues = [6, 2, 3, 8]
 
 
 def how_many_statues_needed(statues):
+    # functions check how much statues needed to make whole line
     statues_ordered = sorted(statues)
     all_statues = list(range(statues_ordered[0], statues_ordered[-1]+1))
     print(all_statues)
