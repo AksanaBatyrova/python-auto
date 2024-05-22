@@ -17,22 +17,24 @@ B классическом варианте игра рассчитана на �
 answer = 2310
 guess = input('Make a guess: ')
 
+
 def bulls_and_cows_game(answer, guess):
-  cows = 0
-  bulls = 0
-  answer_li = list(str(answer))
-  guess_li = list(guess)
-  for i in range(4):
-    if guess_li[i] == answer_li[i]:
-      bulls += 1
-    elif guess_li[i] in answer_li:
-      cows += 1
-  print(f'{cows} cows, {bulls} bulls')
-  if bulls != 4:
-    guess = input('Make another guess: ')
-    bulls_and_cows_game(answer, guess)
-  elif bulls == 4:
-    return print('You win!')
+    cows = 0
+    bulls = 0
+    answer_li = list(str(answer))
+    guess_li = list(guess)
+    for i in range(4):
+        if guess_li[i] == answer_li[i]:
+            bulls += 1
+        elif guess_li[i] in answer_li:
+            cows += 1
+    print(f'{cows} cows, {bulls} bulls')
+    if bulls != 4:
+        guess = input('Make another guess: ')
+        bulls_and_cows_game(answer, guess)
+    elif bulls == 4:
+        return print('You win!')
+
 
 bulls_and_cows_game(answer, guess)
 
@@ -59,10 +61,12 @@ c каждой стороны.
 co значением N, равным 10
 """
 
+
 def pyramid(n):
-  for i in range(n):
-    i = i * 2 - 1
-    print(('*' * i).center(n* 2 - 1))
+    for i in range(n):
+        i = i * 2 - 1
+        print(('*' * i).center(n * 2 - 1))
+
 
 pyramid(10)
 
@@ -82,10 +86,12 @@ pyramid(10)
 
 statues = [6, 2, 3, 8]
 
+
 def how_many_statues_needed(statues):
-  statues_ordered = sorted(statues)
-  all_statues = list(range(statues_ordered[0], statues_ordered[-1]+1))
-  print(all_statues)
-  print(len(all_statues) - len(statues_ordered))
+    statues_ordered = sorted(statues)
+    all_statues = list(range(statues_ordered[0], statues_ordered[-1]+1))
+    print(all_statues)
+    print(len(all_statues) - len(statues_ordered))
+
 
 how_many_statues_needed(statues)
