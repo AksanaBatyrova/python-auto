@@ -62,9 +62,8 @@ print(bulls_and_cows_game(ANSWER, first_guess))
 # co значением N, равным 10
 
 
-
 def pyramid(n):
-    """print pyramid of * symbols""" 
+    """print pyramid of * symbols"""
     for i in range(n):
         i = i * 2 - 1
         print(('*' * i).center(n * 2 - 1))
