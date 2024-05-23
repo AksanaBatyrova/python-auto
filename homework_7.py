@@ -15,7 +15,7 @@ B классическом варианте игра рассчитана на �
 """
 
 ANSWER = 2310
-guess = input('Make a guess: ')
+first_guess = input('Make a guess: ')
 
 
 def bulls_and_cows_game(answer, guess):
@@ -30,17 +30,16 @@ def bulls_and_cows_game(answer, guess):
         elif guess_li[i] in answer_li:
             cows += 1
     print(f'{cows} cows, {bulls} bulls')
-    if bulls != 4:
-        guess = input('Make another guess: ')
-        bulls_and_cows_game(answer, guess)
-    elif bulls == 4:
+    if bulls == 4:
         return 'You win!'
+    elif bulls != 4:
+        guess = input('Make another guess: ')
+        return bulls_and_cows_game(answer, guess)
 
 
-bulls_and_cows_game(ANSWER, guess)
+print(bulls_and_cows_game(ANSWER, first_guess))
 
-"""
-Пирамида
+"""Пирамида
 Мы можем визуализировать художественную пирамиду ASCII c N уровнями,
 напечатав N рядов звездочек, где верхний ряд имеет одну звездочку в
 центре, a каждый последующий ряд имеет две дополнительные звездочки
@@ -86,15 +85,14 @@ pyramid(10)
 Иными словами, y Bac отсутствуют статуи размеров 4, 5 и 7.
 """
 
-statues = [6, 2, 3, 8]
+statues_li = [6, 2, 3, 8]
 
 
 def how_many_statues_needed(statues):
     # functions check how much statues needed to make whole line
     statues_ordered = sorted(statues)
     all_statues = list(range(statues_ordered[0], statues_ordered[-1]+1))
-    print(all_statues)
-    print(len(all_statues) - len(statues_ordered))
+    return len(all_statues) - len(statues_ordered)
 
 
-how_many_statues_needed(statues)
+print(how_many_statues_needed(statues_li))
