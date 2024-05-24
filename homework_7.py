@@ -19,12 +19,12 @@ import random
 
 def generate_random_number():
     """function generating a number of 4 random unique digits"""
-    number = random.randint(1000, 9999)
-    if len(set(map(int, str(number)))) != 4:
-        result = generate_random_number()
-    else:
-        result = list(map(int, str(number)))
-    return result
+    number = []
+    while len(number) < 4:
+        digit = random.randint(0, 9)
+        if digit not in number:
+            number.append(digit)
+    return number
 
 
 def make_a_guess():
@@ -50,6 +50,7 @@ def bulls_and_cows_game(answer, guess):
     """function describing 'cows and bulls' game"""
     cows = 0
     bulls = 0
+    result = ''
     for i in range(4):
         if guess[i] == answer[i]:
             bulls += 1
@@ -66,7 +67,7 @@ def bulls_and_cows_game(answer, guess):
 
 generated_answer = generate_random_number()
 user_guess = make_a_guess()
-print(bulls_and_cows_game(generated_answer, user_guess))
+bulls_and_cows_game(generated_answer, user_guess)
 
 
 # Пирамида
