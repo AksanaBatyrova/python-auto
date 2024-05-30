@@ -60,8 +60,8 @@ def bulls_and_cows_game(answer, guess):
     if bulls == 4:
         result = print('You win!')
     if bulls != 4:
-        guess = input('Make another guess: ')
-        result = bulls_and_cows_game(answer, list(map(int, str(guess))))
+        guess = make_a_guess()
+        result = bulls_and_cows_game(answer, guess)
     return result
 
 
