@@ -53,11 +53,11 @@ def solution(sequence):
     return x < y
 
 
-print(solution([1, 2, 3]))
-print(solution([1, 2, 1, 2]))
-print(solution([1, 3, 2, 1]))
-print(solution([1, 2, 3, 4, 5, 3, 5, 6]))
-print(solution([40, 50, 60, 10, 20, 30]))
+assert (solution([1, 3, 2])) is True
+assert (solution([1, 2, 1, 2])) is False
+assert (solution([1, 3, 2, 1])) is False
+assert (solution([1, 2, 3, 4, 5, 3, 5, 6])) is False
+assert (solution([40, 50, 60, 10, 20, 30])) is False
 
 # Число на против
 # Рассмотрим целые числа от 0 до n-1, записанные по окружности так, чтобы
@@ -78,9 +78,9 @@ def opposite_number(n, first_number):
     n: integer
     first_number: the number for which needs to find opposite
 
-    return: int
+    return: number opposite to n
     """
-    return (n / 2 + first_number) % n
+    return int((n / 2 + first_number) % n)
 
 
 print(opposite_number(10, 2))
@@ -100,7 +100,7 @@ print(opposite_number(10, 2))
 # credit_card_numbers.htm
 
 
-def validate(card_number: int):
+def validate(card_number: int) -> bool:
     """
     This unction checks if credit card number exists
     card_number: 12-characters integer representing credit card number
@@ -124,5 +124,5 @@ def validate(card_number: int):
     return False
 
 
-print(validate(4561261212345464))
-print(validate(4561261212345467))
+assert (validate(4561261212345464)) is False
+assert (validate(4561261212345467)) is True
