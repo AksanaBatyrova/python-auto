@@ -1,6 +1,5 @@
 """This module is a homework 7 made by Aksana Batyrova"""
 
-import math
 from itertools import groupby
 
 # Строки с заданным символом
@@ -17,7 +16,7 @@ from itertools import groupby
 # ""              ==>  ""
 
 
-def strings_with_symbol(input_str: str):
+def strings_with_symbol(input_str):
     """This function call delete_elements function if there is no '#' elements
     in input string otherwise returns empty string
 
@@ -26,24 +25,19 @@ def strings_with_symbol(input_str: str):
     return: calls delete_elements function if '#' is in input string,
             empty string instead
   """
-    def delete_elements(string):
-        """This function get string and delete '#' and element before it
-
-        string: input string
-
-        return: calls delete_elements function if '#' is in input string,
-                string with left elements instead
-        """
-        new_str = list(string[:])
-        if new_str[new_str.index("#")-1] != "#":
-            new_str.remove(new_str[new_str.index("#")-1])
-            new_str.remove("#")
-            "".join(new_str)
-        else:
-            new_str.remove("#")
-            "".join(new_str)
-        return delete_elements(new_str) if '#' in new_str else "".join(new_str)
-    return delete_elements(input_str) if '#' in input_str else ""
+    if "#" not in input_str:
+        return ""
+    str_list = list(input_str)
+    if str_list[str_list.index("#")-1] != "#":
+        str_list.remove(str_list[str_list.index("#")-1])
+        str_list.remove("#")
+        "".join(str_list)
+    else:
+        str_list.remove("#")
+        "".join(str_list)
+    return (strings_with_symbol(str_list)
+            if '#' in str_list
+            else "".join(str_list))
 
 
 assert strings_with_symbol("a#bc#d") == "bd"
@@ -115,7 +109,7 @@ def solution(candles_number, make_new):
     candles_burned = 0
     leftovers = candles_number
     while leftovers >= make_new:
-        can_do = math.floor(leftovers / make_new)
+        can_do = leftovers // make_new
         candles_burned = burn_candles(can_do, make_new, candles_burned)
         leftovers = count_leftovers(leftovers, can_do, make_new)
     candles_burned += leftovers
@@ -144,23 +138,16 @@ assert solution(2, 3) == 2
 
 
 def count_letters(input_string):
-    """_summary_
+    """This function counts letters in string
 
-    Args:
-        string (_type_): _description_
+    input_string: input string
 
-    Returns:
-        _type_: _description_
+    return: string with counted letters
     """
-    string_list = list(input_string[:])
-    element_groups = ["".join(group) for el, group in groupby(string_list)]
-    new_string = []
-    for el in element_groups:
-        if el.count(el[0]) > 1:
-            new_string.append(f'{el[0]}{el.count(el[0])}')
-        elif el.count(el[0]) == 1:
-            new_string.append(el[0])
-    return "".join(new_string)
+    result = ""
+    for el, group in groupby(input_string):
+        result += f'{el}{len(list(group))}'.replace('1', "")
+    return result
 
 
 assert count_letters("cccbba") == "c3b2a"
