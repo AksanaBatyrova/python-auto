@@ -25,7 +25,7 @@ def positive_arguments(function):
         for arg in args:
             if not isinstance(arg, (int, float)) or arg <= 0:
                 raise ValueError(f'{arg} is not a positive number')
-        return function
+        return function(*args)
     return check_args
 
 
@@ -57,8 +57,8 @@ def is_a_number(function):
     def check_function_result():
         result = function()
         if not isinstance(result, (int, float)):
-            print(f'{result} is not a number')
-        return function
+            return f'{result} is not a number'
+        return function()
     return check_function_result
 
 
@@ -74,8 +74,8 @@ def return_string():
     return 'a'
 
 
-return_number()
-return_string()
+assert return_number() == 5
+assert return_string() == 'a is not a number'
 
 # Декоратор типов
 # Напишите декоратор, который проверял бы тип параметров функции,
@@ -94,8 +94,7 @@ def typed(data_type):
     def convert(function):
         def wrapper(*args):
             args = (data_type(arg) for arg in args)
-            result = function(*args)
-            return result
+            return function(*args)
         return wrapper
     return convert
 
