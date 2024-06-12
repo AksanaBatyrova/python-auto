@@ -21,12 +21,12 @@ class Book:
     Methods:
     """
 
-    def __init__(self, name, author, pages, isbn, is_reserved):
+    def __init__(self, name, author, pages, isbn):
         self.name = name
         self.author = author
         self.pages = pages
         self.isbn = isbn
-        self.is_reserved = is_reserved
+        self.is_reserved = False
 
     def get_pages(self):
         """This method return amount of pages"""
@@ -84,9 +84,9 @@ class User:
         return f"You've returned '{cls.name}' by {cls.author}"
 
 
-allan_poe_raven = Book("The Raven", "Edgar Allan Poe", 6, 9788506007914, False)
+allan_poe_raven = Book("The Raven", "Edgar Allan Poe", 6, 9788506007914)
 johann_goethe_faust = Book("Faust, a Tragedy", "Johann Wolfgang von Goethe",
-                           165, 1503262146, False)
+                           165, 1503262146)
 user1 = User("John", None, None)
 user2 = User("Jane", None, None)
 
