@@ -24,7 +24,7 @@ def positive_arguments(function):
     def check_args(*args):
         for arg in args:
             if not isinstance(arg, (int, float)) or arg <= 0:
-                raise ValueError(f'{arg} is not a positive number')
+                raise ValueError
         return function(*args)
     return check_args
 
@@ -35,4 +35,12 @@ def example_function(*args):
     return sum(args)
 
 
-example_function(5, -4)
+def both_positive(a, b):
+    """This function handle the Value Error exception"""
+    try:
+        return example_function(a, b)
+    except ValueError:
+        return 'Invalid argument: not a positive number'
+
+
+assert (both_positive(5, -4)) == 'Invalid argument: not a positive number'
