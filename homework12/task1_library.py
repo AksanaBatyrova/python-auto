@@ -70,8 +70,8 @@ class User:
     def reserve_book(self, book):
         """This method used to reserve books from library"""
         if book.is_reserved is True:
-            return f"'{
-                book.name}' by {book.author} is reserved by another user"
+            return (
+                f"'{book.name}' by {book.author} is reserved by another user")
         self.reserved_book = f"'{book.name}' {book.author}"
         book.is_reserved = True
         return f"You've reserved '{book.name}' by {book.author}"
