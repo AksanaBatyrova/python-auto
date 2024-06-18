@@ -11,26 +11,6 @@
 # https://myfin.by/wiki/term/kapitalizaciya-procentov
 
 
-class Deposit:
-    """This class describes bank deposit
-
-    Arguments:
-    amount: money deposited
-    term: deposit term
-    """
-    def __init__(self, amount, term):
-        self.amount = amount
-        self.term = term
-
-    def withdraw_deposit(self):
-        """This method is used as workaround for Pylint
-           R0903:too-few-public-methods"""
-
-    def topup_deposit(self):
-        """This method is used as workaround for Pylint
-           R0903:too-few-public-methods"""
-
-
 class Bank:
     """This class describes bank and its services
 
@@ -45,7 +25,7 @@ class Bank:
 
     def deposit(self, n, r):
         """This method is for calculating compound interest"""
-        return int(n*(1+0.1)**r)
+        return round((n*(1+0.1)**r), 2)
 
     def loan(self):
         """This method is used as workaround for Pylint
@@ -53,5 +33,7 @@ class Bank:
 
 
 bank1 = Bank()
-assert bank1.deposit(1000, 2) == 1210
-assert bank1.deposit(2690, 9) == 6342
+
+assert bank1.deposit(1000, 1) == 1100.0
+assert bank1.deposit(1000, 2) == 1210.0
+assert bank1.deposit(2000, 1) == 2200.0

@@ -51,44 +51,45 @@ class User:
     return_book(): unassign the book from user
     """
 
-    def __init__(self, name, taken_book, reserved_book):
+    def __init__(self, name):
         self.name = name
-        self.taken_book = taken_book
-        self.reserved_book = reserved_book
+        self.taken_book = None
+        self.reserved_book = None
 
     def reserved_by(self, name):
         """This method return the name of book owner"""
         return name
 
-    def take_book(self, cls):
+    def take_book(self, book):
         """This method used to take books from library"""
-        if cls.is_reserved is True:
-            return f"'{cls.name}' by {cls.author} is taken by another user"
-        self.taken_book = f"'{cls.name}' {cls.author}"
-        return f"You've took '{cls.name}' by {cls.author}"
+        if book.is_reserved is True:
+            return f"'{book.name}' by {book.author} is taken by another user"
+        self.taken_book = f"'{book.name}' {book.author}"
+        return f"You've took '{book.name}' by {book.author}"
 
-    def reserve_book(self, cls):
+    def reserve_book(self, book):
         """This method used to reserve books from library"""
-        if cls.is_reserved is True:
-            return f"'{cls.name}' by {cls.author} is reserved by another user"
-        self.reserved_book = f"'{cls.name}' {cls.author}"
-        cls.is_reserved = True
-        return f"You've reserved '{cls.name}' by {cls.author}"
+        if book.is_reserved is True:
+            return f"'{
+                book.name}' by {book.author} is reserved by another user"
+        self.reserved_book = f"'{book.name}' {book.author}"
+        book.is_reserved = True
+        return f"You've reserved '{book.name}' by {book.author}"
 
-    def return_book(self, cls):
+    def return_book(self, book):
         """This method used to reserve books from library"""
-        if cls.is_reserved is False:
+        if book.is_reserved is False:
             return "This book is free, nothing to return"
         self.taken_book = None
-        cls.is_reserved = False
-        return f"You've returned '{cls.name}' by {cls.author}"
+        book.is_reserved = False
+        return f"You've returned '{book.name}' by {book.author}"
 
 
 allan_poe_raven = Book("The Raven", "Edgar Allan Poe", 6, 9788506007914)
 johann_goethe_faust = Book("Faust, a Tragedy", "Johann Wolfgang von Goethe",
                            165, 1503262146)
-user1 = User("John", None, None)
-user2 = User("Jane", None, None)
+user1 = User("John")
+user2 = User("Jane")
 
 assert (allan_poe_raven.get_pages()) == 6
 assert (allan_poe_raven.get_isbn()) == 9788506007914
