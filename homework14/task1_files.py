@@ -40,11 +40,11 @@ def calculate_statistics(file_path):
 
         group_averages = {
             group: group_scores[group] / group_counts[group]
-            for group, value in group_counts.items()}
+            for group in group_counts.values()}
 
         with open(file_path, 'a', encoding='utf-8') as file:
             file.write(f'\nTotal amount of students: {total_students}\n')
-            for group, value in group_counts.items():
+            for group in group_counts.values():
                 file.write(f'Group {group}: {group_counts[group]} students, '
                            f'Average mark: {group_averages[group]:.2f}\n')
 
