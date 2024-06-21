@@ -1,4 +1,4 @@
-"""Homework 14. Task 2 Engineer evaluate_expression"""
+"""Homework 14. Task 2 Engineer calculator"""
 
 # Инженерный калькулятор
 # Напишите программу - инженерный калькулятор. Передусмотрите возможные ошибки
