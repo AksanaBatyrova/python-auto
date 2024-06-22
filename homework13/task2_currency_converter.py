@@ -25,12 +25,6 @@ class Bank:
         """This method is for calculating compound interest"""
         return int(n*(1+0.1)**r)
 
-    def exchange_currency(self, sell, amount, buy='BYN'):
-        """This method is for converting currency"""
-        amount = round((amount * Currency.exchange_rates[buy] /
-                        Currency.exchange_rates[sell]), 2)
-        return amount, buy
-
 
 class Currency(Bank):
     """This class describes currencies available for trading"""
@@ -42,6 +36,13 @@ class Currency(Bank):
         'CAD': 1.38
     }
 
+    @classmethod
+    def exchange_currency(cls, sell, amount, buy='BYN'):
+        """This method is for converting currency"""
+        amount = round((amount * cls.exchange_rates[buy] /
+                        cls.exchange_rates[sell]), 2)
+        return amount, buy
+
 
 class Person():
     """This class describes a customer of an exchange office"""
@@ -49,26 +50,20 @@ class Person():
         self.currency = currency
         self.amount = amount
 
-    def __str__(self):
-        pass
-
-    def __getstate__(self):
-        pass
-
 
 bank = Bank()
 
-vasya = Person('USD', 10)
+vasya = Person("USD", 10)
 petya = Person('EUR', 5)
 
 # Если валюта не задана, то конвертация происходит в BYN:
-assert bank.exchange_currency(vasya.currency, vasya.amount) == (
+assert Currency.exchange_currency(vasya.currency, vasya.amount) == (
     32.6, 'BYN'), 'Something went wrong'
-assert bank.exchange_currency(petya.currency, petya.amount) == (
+assert Currency.exchange_currency(petya.currency, petya.amount) == (
     17.53, "BYN"), 'Something went wrong'
 
 # Конвертация в заданную валюту BYN:
-assert bank.exchange_currency(vasya.currency, vasya.amount, 'EUR') == (
+assert Currency.exchange_currency(vasya.currency, vasya.amount, 'EUR') == (
     9.3, "EUR"), 'Something went wrong'
-assert bank.exchange_currency(petya.currency, petya.amount, 'USD') == (
+assert Currency.exchange_currency(petya.currency, petya.amount, 'USD') == (
     5.38, "USD"), 'Something went wrong'
