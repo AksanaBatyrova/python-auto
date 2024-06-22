@@ -17,15 +17,16 @@ class Bank:
     Arguments:
     amount: money deposited
     term: deposit term
+    rate: interest rate (percent)
 
     Methods:
     deposit(): calculating how much bank client will receive when depositing at
     compound interest
     """
 
-    def deposit(self, n, r):
+    def deposit(self, amount, term, rate):
         """This method is for calculating compound interest"""
-        return round((n*(1+0.1)**r), 2)
+        return round(amount * (1 + (rate/100) / 12) ** (12 * term), 2)
 
     def loan(self):
         """This method is used as workaround for Pylint
@@ -34,6 +35,4 @@ class Bank:
 
 bank1 = Bank()
 
-assert bank1.deposit(1000, 1) == 1100.0
-assert bank1.deposit(1000, 2) == 1210.0
-assert bank1.deposit(2000, 1) == 2200.0
+assert bank1.deposit(1000, 1, 10) == 1104.71
