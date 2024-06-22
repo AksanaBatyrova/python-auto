@@ -21,12 +21,6 @@ class Card:
     def __str__(self):
         return f'{self.suit} {self.number}'
 
-    def get_by_number(self, number):
-        """This method is used to get a card by number"""
-        if number not in range(0, 53):
-            return 'Invalid card number'
-        return CardsDeck.new_deck[number]
-
 
 class CardsDeck:
     """This class define cards deck
@@ -37,24 +31,34 @@ class CardsDeck:
     """
     new_deck: list[str] = []
 
-    def create_deck(self, cls):
-        """This method is used to create cards deck"""
-        for s in cls.suit_list:
-            for n in cls.number_list:
-                self.new_deck.append(f'{s} {n}')
-        return self.new_deck
+    # def create_deck(self, card_cls):
+    #     """This method is used to create cards deck"""
+    #     for s in card_cls.suit_list:
+    #         for n in card_cls.number_list:
+    #             self.new_deck.append(f'{s} {n}')
+    #     return self.new_deck
+
+    def __init__(self):
+        self.new_deck = [
+            Card(number, suit)
+            for suit in Card.suit_list
+            for number in Card.number_list]
 
     def shuffle(self):
         """This method is used to shuffle cards deck"""
-        self.new_deck = self.create_deck(Card)
         random.shuffle(self.new_deck)
         return self.new_deck
 
+    def get_by_number(self, number):
+        """This method is used to get a card by number"""
+        if number not in range(0, 53):
+            return 'Invalid card number'
+        return self.new_deck[number]
+
 
 deck = CardsDeck()
-card = Card()
 
 deck.shuffle()
 card_number = int(input('Выберите карту из колоды в 54 карты:'))
-card = card.get_by_number(card_number)
+card = deck.get_by_number(card_number)
 print(f'You card is: {card}')
