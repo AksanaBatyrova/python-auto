@@ -31,13 +31,6 @@ class CardsDeck:
     """
     new_deck: list[str] = []
 
-    # def create_deck(self, card_cls):
-    #     """This method is used to create cards deck"""
-    #     for s in card_cls.suit_list:
-    #         for n in card_cls.number_list:
-    #             self.new_deck.append(f'{s} {n}')
-    #     return self.new_deck
-
     def __init__(self):
         self.new_deck = [
             Card(number, suit)
