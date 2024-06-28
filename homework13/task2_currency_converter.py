@@ -21,9 +21,9 @@ class Bank:
     compound interest
     """
 
-    def deposit(self, n, r):
+    def deposit(self, amount, term, rate):
         """This method is for calculating compound interest"""
-        return int(n*(1+0.1)**r)
+        return round(amount * (1 + (rate/100) / 12) ** (12 * term), 2)
 
 
 class Currency(Bank):
