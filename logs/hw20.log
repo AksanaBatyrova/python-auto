@@ -1,0 +1,14 @@
+2024-07-19 16:01:50,856 :: Deposit tests :: INFO :: Test 2. Verify that program return error if amount is negative
+2024-07-19 16:01:50,862 :: Deposit tests :: INFO :: Test 4. Verify that program return error if rate is negative
+2024-07-19 16:01:50,866 :: Deposit tests :: INFO :: Test 3. Verify that program return error if term is negative
+2024-07-19 16:01:50,876 :: Deposit tests :: INFO :: Test 5. Verify that program return error if amount is not a number
+2024-07-19 16:01:50,880 :: Deposit tests :: INFO :: Test 7. Verify that program return error if rate is not a number
+2024-07-19 16:01:50,883 :: Deposit tests :: INFO :: Test 6. Verify that program return error if term is not a number
+2024-07-19 16:01:50,893 :: Deposit tests :: INFO :: Test 1. Verify that program is working correctly with valid data
+2024-07-19 16:01:50,898 :: Library tests :: INFO :: Test 2. Verify work of "get_isbn" function
+2024-07-19 16:01:50,901 :: Library tests :: INFO :: Test 1. Verify work of "get_pages" function
+2024-07-19 16:01:50,908 :: Library tests :: INFO :: Test 4. Verify that book is reserved
+2024-07-19 16:01:50,913 :: Library tests :: INFO :: Test 3. Verify return after book reservation
+2024-07-19 16:01:50,917 :: Library tests :: INFO :: Test 5. Verify return of the "reserve_book" if book is already reserved by another user
+2024-07-19 16:01:50,924 :: Library tests :: INFO :: Test 6. Verify return of the "return_book" function
+2024-07-19 16:01:50,929 :: Library tests :: INFO :: Test 7. Verify return of the "return_book" if book has been already returned
