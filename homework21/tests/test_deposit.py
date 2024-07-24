@@ -42,7 +42,7 @@ from logs.logger import setup_logger
 
 from homework21.source.deposit import Bank
 
-logger = setup_logger('Deposit tests', 'logs/my_log.log')
+logger = setup_logger(__name__)
 
 
 @pytest.fixture

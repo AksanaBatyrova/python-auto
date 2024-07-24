@@ -78,32 +78,38 @@ class User:
         return f"You've returned '{book.name}' by {book.author}"
 
 
-allan_poe_raven = Book("The Raven", "Edgar Allan Poe", 6, 9788506007914)
-johann_goethe_faust = Book("Faust, a Tragedy", "Johann Wolfgang von Goethe",
-                           165, 1503262146)
-user1 = User("John")
-user2 = User("Jane")
+def __main__():
+    allan_poe_raven = Book("The Raven", "Edgar Allan Poe", 6, 9788506007914)
+    johann_goethe_faust = Book("Faust, a Tragedy",
+                               "Johann Wolfgang von Goethe", 165, 1503262146)
+    user1 = User("John")
+    user2 = User("Jane")
 
-assert (allan_poe_raven.get_pages()) == 6
-assert (allan_poe_raven.get_isbn()) == 9788506007914
-assert (user1.reserve_book(allan_poe_raven)) == (
-    "You've reserved 'The Raven' by Edgar Allan Poe")
+    assert (allan_poe_raven.get_pages()) == 6
+    assert (allan_poe_raven.get_isbn()) == 9788506007914
+    assert (user1.reserve_book(allan_poe_raven)) == (
+        "You've reserved 'The Raven' by Edgar Allan Poe")
 
-assert (user1.reserved_book) == "'The Raven' Edgar Allan Poe"
+    assert (user1.reserved_book) == "'The Raven' Edgar Allan Poe"
 
-assert (user2.take_book(allan_poe_raven)) == (
-    "'The Raven' by Edgar Allan Poe is taken by another user")
+    assert (user2.take_book(allan_poe_raven)) == (
+        "'The Raven' by Edgar Allan Poe is taken by another user")
 
-assert (user1.take_book(johann_goethe_faust)) == (
-    "You've took 'Faust, a Tragedy' by Johann Wolfgang von Goethe")
+    assert (user1.take_book(johann_goethe_faust)) == (
+        "You've took 'Faust, a Tragedy' by Johann Wolfgang von Goethe")
 
-assert (user1.taken_book) == "'Faust, a Tragedy' Johann Wolfgang von Goethe"
+    assert (user1.taken_book) == (
+        "'Faust, a Tragedy' Johann Wolfgang von Goethe")
 
-assert (user2.reserve_book(allan_poe_raven)) == (
-    "'The Raven' by Edgar Allan Poe is reserved by another user")
+    assert (user2.reserve_book(allan_poe_raven)) == (
+        "'The Raven' by Edgar Allan Poe is reserved by another user")
 
-assert (user1.return_book(allan_poe_raven)) == (
-    "You've returned 'The Raven' by Edgar Allan Poe")
+    assert (user1.return_book(allan_poe_raven)) == (
+        "You've returned 'The Raven' by Edgar Allan Poe")
 
-assert (user2.return_book(allan_poe_raven)) == (
-    "This book is free, nothing to return")
+    assert (user2.return_book(allan_poe_raven)) == (
+        "This book is free, nothing to return")
+
+
+if __name__ == "__main__":
+    __main__()

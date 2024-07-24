@@ -41,7 +41,7 @@ from logs.logger import setup_logger
 
 from homework21.source.library import User, Book
 
-logger = setup_logger('Library tests', 'logs/my_log.log')
+logger = setup_logger(__name__)
 
 
 @pytest.fixture
