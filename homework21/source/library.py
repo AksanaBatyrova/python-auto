@@ -78,7 +78,7 @@ class User:
         return f"You've returned '{book.name}' by {book.author}"
 
 
-def __main__():
+if __name__ == "__main__":
     allan_poe_raven = Book("The Raven", "Edgar Allan Poe", 6, 9788506007914)
     johann_goethe_faust = Book("Faust, a Tragedy",
                                "Johann Wolfgang von Goethe", 165, 1503262146)
@@ -87,9 +87,9 @@ def __main__():
 
     assert (allan_poe_raven.get_pages()) == 6
     assert (allan_poe_raven.get_isbn()) == 9788506007914
+
     assert (user1.reserve_book(allan_poe_raven)) == (
         "You've reserved 'The Raven' by Edgar Allan Poe")
-
     assert (user1.reserved_book) == "'The Raven' Edgar Allan Poe"
 
     assert (user2.take_book(allan_poe_raven)) == (
@@ -109,7 +109,3 @@ def __main__():
 
     assert (user2.return_book(allan_poe_raven)) == (
         "This book is free, nothing to return")
-
-
-if __name__ == "__main__":
-    __main__()
