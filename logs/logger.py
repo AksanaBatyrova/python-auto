@@ -1,15 +1,17 @@
 """Logger"""
 
+from datetime import datetime
 import logging
 
 
-def setup_logger(name, log_file, level=logging.INFO):
+def setup_logger(name, level=logging.INFO):
     """Function to set up a logger"""
     logger = logging.getLogger(name)
     logger.setLevel(level)
 
     c_handler = logging.StreamHandler()
-    f_handler = logging.FileHandler(log_file)
+    f_handler = logging.FileHandler(
+        'logs/{}.log'.format(datetime.now().strftime('%Y-%m-%d')))
 
     c_format = logging.Formatter('%(name)s :: %(levelname)s :: %(message)s')
     f_format = logging.Formatter(
