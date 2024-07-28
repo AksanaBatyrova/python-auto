@@ -26,9 +26,9 @@ class Bank:
 
     def deposit(self, amount, term, rate):
         """This method is for calculating compound interest"""
-        if (not isinstance(amount, int) or
-                not isinstance(term, int) or
-                not isinstance(rate, int)):
+        if (not isinstance(amount, (int, float)) or
+                not isinstance(term, (int, float)) or
+                not isinstance(rate, (int, float))):
             raise ValueError('Values should be numbers')
         if amount < 0 or term < 0 or rate < 0:
             raise ValueError('Values should be positive')
