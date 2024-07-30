@@ -87,3 +87,4 @@ contacts_first_contact_name = "//tr[@class='contactTableBodyRow']/td[.='{firstna
 delete_contact_button = "#delete"
 
 # 14. Approve deletion
+ 
