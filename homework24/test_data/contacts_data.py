@@ -18,14 +18,14 @@ class Contact():
         self.country = country
 
 
-contact_1 = Contact('John', 'Smith', '23/04/1965', 'john.smith@test.com',
-                    '+55512345679', 'Bridge st. 15', '123', 'London', 'London',
+contact_1 = Contact('John', 'Smith', '1965-04-23', 'john.smith@test.com',
+                    '55512345679', 'Bridge st. 15', '123', 'London', 'London',
                     '123458', 'Great Britain')
 
-contact_2 = Contact('Jane', 'Smith', '14/09/1967', 'jane.smith@test.com',
-                    '+55512312345', 'Bridge st. 15', '123', 'London', 'London',
+contact_2 = Contact('Jane', 'Doe', '1967-09-14', 'jane.smith@test.com',
+                    '55512312345', 'Bridge st. 15', '123', 'London', 'London',
                     '123458', 'Great Britain')
 
-contact_3 = Contact('Betty', 'Smith', '12/09/1992', 'betty.smith@test.com',
-                    '+55512345999', 'Bridge st. 15', '123', 'London', 'London',
+contact_3 = Contact('Betty', 'Clarkson', '1992-09-12', 'betty.smith@test.com',
+                    '55512345999', 'Bridge st. 15', '123', 'London', 'London',
                     '123458', 'Great Britain')
