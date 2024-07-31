@@ -1,5 +1,6 @@
 """Homework 24 Add contact"""
 
+import time
 from homework24.test_data import login_data, contacts_data
 from homework24.pages.login_page import LoginPage
 from homework24.pages.contact_list_page import ContactListPage
@@ -102,6 +103,7 @@ def test_edit_contact(driver):
     contact_details_page.click_edit_contact_button()
 
     edit_contact_page.wait_edit_form_to_load()
+    time.sleep(1)
     edit_contact_page.edit_first_name(contacts_data.contact_2.first_name)
     edit_contact_page.edit_last_name(contacts_data.contact_2.last_name)
     edit_contact_page.click_submit_button()
