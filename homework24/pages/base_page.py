@@ -27,10 +27,6 @@ class BasePage:
         return self._wait.until(
             expected.element_to_be_clickable(locator)).clear()
 
-    def scroll_to_element(self, locator):
-        return self.driver.execute_script(
-            "arguments[0].scrollIntoView(true);", locator)
-
     def wait_for_element(self, locator):
         return self._wait.until(
             expected.presence_of_all_elements_located(locator))
