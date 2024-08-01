@@ -138,6 +138,6 @@ def test_delete_contact(driver):
             in contact_details_page.get_alert_text())
     contact_details_page.confirm_contact_deletion()
 
-    assert (f"{contacts_data.contact_2.first_name} {
-               contacts_data.contact_2.last_name}"
+    assert (f"{contacts_data.contact_2.first_name} "
+            f"{contacts_data.contact_2.last_name}"
             not in contact_list_page.get_contact_name(1))
