@@ -75,8 +75,8 @@ def test_add_contact_full(driver):
     contact_list_page.wait_for_table_to_load()
 
     assert 'Contact List' in contact_list_page.get_page_header()
-    assert (f"{contacts_data.contact_2.first_name} {
-               contacts_data.contact_2.last_name}"
+    assert (f"{contacts_data.contact_2.first_name} "
+            f"{contacts_data.contact_2.last_name}"
             in contact_list_page.get_contact_name(1))
 
 
