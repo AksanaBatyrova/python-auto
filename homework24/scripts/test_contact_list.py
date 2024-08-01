@@ -42,8 +42,8 @@ def test_add_contact_required(driver):
     add_contact_page.click_submit_button()
     contact_list_page.wait_for_table_to_load()
 
-    assert (f"{contacts_data.contact_1.first_name} {
-               contacts_data.contact_1.last_name}"
+    assert (f"{contacts_data.contact_1.first_name} "
+            f"{contacts_data.contact_1.last_name}"
             in contact_list_page.get_contact_name(1))
 
 
