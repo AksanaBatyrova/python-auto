@@ -8,22 +8,21 @@ from homework24.pages.contact_list_page import ContactListPage
 from homework24.pages.contact_details_page import ContactDetailsPage
 from homework24.test_data import login_data
 
+BASE_URL = "https://thinking-tester-contact-list.herokuapp.com/"
+
 
 @pytest.fixture
 def driver():
-    base_url = "https://thinking-tester-contact-list.herokuapp.com/"
     driver = webdriver.Chrome()
-    driver.get(base_url)
+    driver.get(BASE_URL)
     yield driver
+    clear_all_contacts()
     driver.close()
 
 
-@pytest.fixture(autouse=True)
 def clear_all_contacts():
-    yield
-    base_url = "https://thinking-tester-contact-list.herokuapp.com/"
     driver = webdriver.Chrome()
-    driver.get(base_url)
+    driver.get(BASE_URL)
     login_page = LoginPage(driver)
     contact_list_page = ContactListPage(driver)
     contact_details_page = ContactDetailsPage(driver)

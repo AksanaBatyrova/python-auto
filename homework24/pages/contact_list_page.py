@@ -12,6 +12,8 @@ class ContactListPage(BasePage):
         self.page_header = (By.TAG_NAME, 'h1')
         self.add_contact_button = (By.ID, 'add-contact')
         self.contacts_table = (By.CLASS_NAME, 'contactTable')
+        self.table_body = (
+            "(//tr[@class='contactTableBodyRow']/td[2])[{row_number}]")
 
     def wait_for_table_to_load(self):
         return self.wait_for_element(self.contacts_table)
@@ -24,9 +26,8 @@ class ContactListPage(BasePage):
 
     def get_contact_name(self, row_number):
         try:
-            return self.get_text(
-                (By.XPATH,
-                 f"(//tr[@class='contactTableBodyRow']/td[2])[{row_number}]"))
+            return self.get_text((By.XPATH, self.table_body.format(
+                row_number=row_number)))
         except TimeoutException:
             return 'No contacts found'
 
